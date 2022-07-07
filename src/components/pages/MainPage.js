@@ -11,7 +11,7 @@ function MainPage() {
     <>
       <Header>
         <div className="Title">
-          <img src={Logo} alt="Logo driven" />
+          <img src={Logo} alt="Logo driven  " />
         </div>
         <Search>
           <SearchBar></SearchBar>
@@ -23,7 +23,7 @@ function MainPage() {
           <div className="Options flag">🇺🇸</div>
           <Link to="/signin" className="Options signIn">Hello, Sign in <strong>Account & Lists</strong></Link>
           <div className="Options history">Returns <strong> & Orders</strong></div>
-          <div className="Options"><strong>Cart</strong></div>
+          <div className="Optionsd"><strong>Cart</strong></div>
         </NavBar>
       </Header>
       <Main></Main>
