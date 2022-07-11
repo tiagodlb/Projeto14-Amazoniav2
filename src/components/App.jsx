@@ -19,6 +19,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/product/:id" component={ProductScreen}/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

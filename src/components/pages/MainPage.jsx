@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {Link, useNavigate} from "react-router-dom"
 import Logo from "./../../assets/icons/logodriven.svg";
+import data from './data';
 
 function MainPage() {
   function handleSearch(e) {
@@ -26,7 +27,26 @@ function MainPage() {
           <div className="Optionsd"><strong>Cart</strong></div>
         </NavBar>
       </Header>
-      <Main></Main>
+      <Main>
+        <div className="row center">
+          {data.products.map((product) =>
+          <div key={product._id} className="card">
+          <a href={`/product/${product._id}`}>
+            <img className="medium" src={product.image} alt="product" />
+          </a>
+          <div className="card body">
+          <a href={`/product/${product._id}`}>
+              <h2>{product.name}</h2>
+            </a>
+            <div className="price">
+              R${product.price}
+            </div>
+          </div>
+        </div>
+          )} 
+          
+        </div>
+      </Main>
       <Footer></Footer>
     </>
   );
