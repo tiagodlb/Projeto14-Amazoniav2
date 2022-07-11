@@ -358,7 +358,6 @@ const Container = styled.div`
   padding: 1rem;
   margin-top: 50px;
 
-  background-color: purple;
   div {
     display: flex;
     justify-content: center;
@@ -374,7 +373,6 @@ const CartImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: green;
 
   img{
     width: 200px;;
