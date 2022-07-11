@@ -16,6 +16,7 @@ function CheckOutPage() {
   const { cart, setCart } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
   const submitHandler = (e) => {
     alert("Agradecemos a preferencia");
     setCart([])
@@ -24,6 +25,7 @@ function CheckOutPage() {
   function handleSidebar() {
     setSidebar(!sidebar);
   }
+  
   return (
     <>
       <Header>

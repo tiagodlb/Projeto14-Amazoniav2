@@ -29,7 +29,7 @@ export default function ProductPage(props) {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `https://drivazon.herokuapp.com/products/${id}`
+          `${process.env.REACT_APP_API_BASE_URL}/products/${id}`
         );
         setLoading(false);
         console.log("0133")

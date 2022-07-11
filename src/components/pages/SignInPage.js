@@ -20,7 +20,7 @@ function SignInPage() {
     setLoading(true);
     const body = { email, password };
     try {
-      const response = await axios.post("https://drivazon.herokuapp.com/signin", body);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/signin`, body);
       const { token, name } = response.data;
       setUser({ name, token });
       navigator("/home");
