@@ -1,26 +1,27 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import UserContext from "../../context/UserContext";
+import UserContext from "./../context/UserContext";
 import axios from "axios";
-
+import { ThreeDots } from  'react-loader-spinner'
+import dotenv from "dotenv";
 import Logo from "./../../assets/icons/logodriven.svg";
 
 function SignInPage() {
+  dotenv.config();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false)
 
   const { user, setUser } = useContext(UserContext);
   const navigator = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     const body = { email, password };
     try {
-      {
-        /*Lembrete pra gente deployar o quanto antes, tanto front quanto back*/
-      }
-      const response = await axios.post("http://localhost:5000/signin", body);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/signin`, body);
       const { token, name } = response.data;
       setUser({ name, token });
       navigator("/home");
@@ -54,7 +55,7 @@ function SignInPage() {
           />
 
           <button type="submit" onClick={handleSubmit}>
-            Login
+            {loading ? ( <ThreeDots heigth="50" width="50" color="white" /> ) : ("Login")}
           </button>
         </form>
         <div className="signUp">
@@ -100,10 +101,19 @@ const Main = styled.main`
     font-weight: bold;
     color: #ffffff;
     cursor: pointer;
+    width: 350px;
+    height: 25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .signUp {
     margin: 10px;
     line-height: 20px;
+  }
+
+  ThreeDots{
+    witdh: 10px;
   }
 `;

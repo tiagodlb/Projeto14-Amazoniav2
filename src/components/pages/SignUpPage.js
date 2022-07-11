@@ -2,21 +2,28 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import { ThreeDots } from  'react-loader-spinner'
 
+import dotenv from "dotenv"
 import Logo from "./../../assets/icons/logodriven.svg";
 
 function SignUpPage() {
+  dotenv.config()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false)
+
 
   const navigator = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
+
     try {
-      await axios.post("http://localhost:5000/signup", {
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/signup`, {
         name,
         email,
         password,
@@ -67,7 +74,7 @@ function SignUpPage() {
           />
 
           <button type="submit" onClick={handleSubmit}>
-            Login
+          {loading ? ( <ThreeDots heigth="50" width="50" color="white" /> ) : ("Sign Up")}
           </button>
         </form>
         <div className="signUp">
@@ -113,6 +120,11 @@ const Main = styled.main`
     font-weight: bold;
     color: #ffffff;
     cursor: pointer;
+    width: 350px;
+    height: 25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .signUp {
