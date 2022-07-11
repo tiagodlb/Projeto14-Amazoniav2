@@ -23,7 +23,7 @@ function SignUpPage() {
     setLoading(true);
 
     try {
-      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/signup`, {
+      await axios.post(`https://drivazon.herokuapp.com/signup`, {
         name,
         email,
         password,

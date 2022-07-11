@@ -3,7 +3,6 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
-import dotenv from "dotenv";
 
 import Logo from "./../../assets/icons/logodriven.svg";
 import { sidebarData } from "./SidebarData.js";
@@ -12,7 +11,6 @@ import MessageBox from "../MessageBox";
 import UserContext from "../context/UserContext";
 
 function CheckOutPage() {
-    dotenv.config()
   const navigate = useNavigate();
   const [sidebar, setSidebar] = useState(false);
   const { cart, setCart } = useContext(UserContext);

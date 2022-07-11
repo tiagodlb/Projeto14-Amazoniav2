@@ -4,11 +4,10 @@ import styled from "styled-components";
 import UserContext from "./../context/UserContext";
 import axios from "axios";
 import { ThreeDots } from  'react-loader-spinner'
-import dotenv from "dotenv";
+
 import Logo from "./../../assets/icons/logodriven.svg";
 
 function SignInPage() {
-  dotenv.config();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false)
@@ -21,7 +20,7 @@ function SignInPage() {
     setLoading(true);
     const body = { email, password };
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/signin`, body);
+      const response = await axios.post("https://drivazon.herokuapp.com/signin", body);
       const { token, name } = response.data;
       setUser({ name, token });
       navigator("/home");
