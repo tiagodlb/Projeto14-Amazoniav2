@@ -8,7 +8,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai" ;
 import dotenv from "dotenv";
 
 import Logo from "./../../assets/icons/logodriven.svg";
